@@ -102,25 +102,48 @@ public class tempBoard extends JPanel
             // the state starts at 0 which corresponds to the blue player
             // after he/she has taken thier turn it will move the state to the next one
             //signifying the next player
-            if(tileArray[pieceArray[state].getNextSpot(temp)].getOccupation()== -1)
-            {
-                // thes its current tile to empty
-                tileArray[pieceArray[state].locationValue].removePiece();
-                //updates the location value in the piece to the new one
-                pieceArray[state].setlocationValue(pieceArray[state].getNextSpot(temp));
-                // updates the graphical corrdinates
-                pieceArray[state].updateX(tileArray[pieceArray[state].locationValue].getX());//tileArray[pieceLocationX].getX());
-                pieceArray[state].updateY(tileArray[pieceArray[state].locationValue].getY());//tileArray[pieceLocationY].getY());
-                //sets the current spot its at to occupied
-                tileArray[pieceArray[state].locationValue].setOccupation(state);
-                //repaints the panel
-                repaint();
-                state++;
-                if(state > 3)
+            
+            
+            
+                if ((pieceArray[state].locationValue + temp) >= 60) 
+                    pieceArray[state].locationValue = ((pieceArray[state].locationValue += temp) - 60);
+                else 
+                {
+                    pieceArray[state].locationValue += temp;
+               
+                    //advacing and looping through the small board
+                
+                    for(int times = 0; times < temp; times++) {
+                    if(pieceLocationX != 60) {
+                    pieceLocationX = pieceLocationX + 1;
+                    } else {
+                    pieceLocationX = 0;
+                    }
+                    }
+                
+    
+                
+                    if (pieceLocationX>=15 && pieceLocationX<=29)
+                    {
+                        pieceLocationY = (pieceLocationX - 15) * 5;
+                    }
+                    if (pieceLocationX>= 29 && pieceLocationX<=44)
+                    {
+                        pieceLocationY = 15;
+                    }
+                    if (pieceLocationX>=44 && pieceLocationX<=59)
+                    {
+                        pieceLocationY = 60 - pieceLocationY;
+                    }
+                    //updates the location of the piece
+                    pieceArray[state].updateX(tileArray[pieceArray[state].locationValue].getX());//tileArray[pieceLocationX].getX());
+                    pieceArray[state].updateY(tileArray[pieceArray[state].locationValue].getY());//tileArray[pieceLocationY].getY());
+                    //repaints the panel
+                    repaint();
+                    state++;
+                    if(state > 3)
                     state = 0;
             }
-            else
-                System.out.println("DEBUG: that place was occypied please draw again");
         }
     }
 }
