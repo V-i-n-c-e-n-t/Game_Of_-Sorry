@@ -1,0 +1,18 @@
+#BlueJ class context
+comment0.params=player\ tileArray
+comment0.target=piece(int,\ tile[])
+comment1.params=player\ x\ y
+comment1.target=piece(int,\ int,\ int)
+comment2.params=g
+comment2.target=void\ draw(java.awt.Graphics)
+comment3.params=x
+comment3.target=void\ updateX(int)
+comment4.params=y
+comment4.target=void\ updateY(int)
+comment5.params=x
+comment5.target=void\ setlocationValue(int)
+comment6.params=
+comment6.target=int\ getlocationValue()
+comment7.params=spots
+comment7.target=int\ getNextSpot(int)
+numComments=8

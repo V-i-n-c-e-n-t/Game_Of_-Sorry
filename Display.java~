@@ -1,0 +1,34 @@
+import javax.swing.*;
+import java.awt.event.*;
+import java.awt.*;
+/**
+ * This class is just to check if the Card actually works and get displayed correctly
+ */
+public class Display extends JFrame{
+    public static void main(String[] args) {
+        Display display = new Display();
+    }
+
+    public Display() {
+        setTitle("Hearthstone 2.0");
+        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        setLayout(new FlowLayout());
+        setPreferredSize(new Dimension(250, 250));
+        
+        Card card = new Card();
+        add(card);
+
+        
+        //Create a button so that the 'Draw' method of the card can be tested
+        JButton drawCard = new JButton("Draw!");
+        drawCard.addActionListener(new ActionListener() {
+                public void actionPerformed(ActionEvent e) {
+                    card.Draw();
+                }
+            });
+            add(drawCard);
+
+        this.pack();
+        this.setVisible(true);
+    }
+}
