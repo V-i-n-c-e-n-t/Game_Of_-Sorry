@@ -34,16 +34,16 @@ public class tile// class for makeing a tile
         switch (c)
         {
             case 1:
-                color = new Color(12, 176, 232);
+                color = new Color(51, 255, 255);
                 break;
             case 2:
-                color = new Color(0, 255, 209);
+                color = new Color(153, 255, 153);
                 break;
             case 3:
-                color = new Color(255, 134, 95);
+                color = new Color(255, 153, 153);
                 break;
             case 4:
-                color = new Color(255, 248, 162);
+                color = new Color(255, 255, 153);
                 break;
                 
         }
